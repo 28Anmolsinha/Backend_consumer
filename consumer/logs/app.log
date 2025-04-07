@@ -1,42 +1,20 @@
-2025-04-01 11:56:41 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.consumer.ConsumerApplicationTests]: ConsumerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-04-01 11:56:42 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.consumer.ConsumerApplication for test class com.example.consumer.ConsumerApplicationTests
-2025-04-01 11:56:43 [main] INFO  com.example.consumer.ConsumerApplicationTests - Starting ConsumerApplicationTests using Java 23.0.2 with PID 22516 (started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer\consumer)
-2025-04-01 11:56:43 [main] INFO  com.example.consumer.ConsumerApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2025-04-01 11:56:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-01 11:56:44 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-01 11:56:45 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 312 ms. Found 1 JPA repository interface.
-2025-04-01 11:56:45 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-01 11:56:45 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-01 11:56:45 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-01 11:56:45 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
-2025-04-01 11:56:46 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-01 11:56:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-01 11:56:46 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-01 11:56:47 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-01 11:56:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-01 11:56:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65b5b5ed
-2025-04-01 11:56:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-01 11:56:48 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-01 11:56:49 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-01 11:56:49 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-01 11:56:49 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue
-2025-04-01 11:56:50 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-01 11:56:51 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-01 11:56:52 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-01 11:56:52 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5037f491:0/SimpleConnection@4a2891d1 [delegate=amqp://user@10.200.208.98:30280/, localPort=53927]
-2025-04-01 11:56:52 [main] INFO  com.example.consumer.ConsumerApplicationTests - Started ConsumerApplicationTests in 9.926 seconds (process running for 12.742)
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-01 11:56:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-01 11:56:53 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-01 11:56:53 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-04-01 11:56:53 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-05 13:58:08 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.consumer.ConsumerApplicationTests]: ConsumerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-04-05 13:58:08 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.consumer.ConsumerApplication for test class com.example.consumer.ConsumerApplicationTests
+2025-04-05 13:58:09 [main] INFO  com.example.consumer.ConsumerApplicationTests - Starting ConsumerApplicationTests using Java 23.0.2 with PID 14404 (started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer\consumer)
+2025-04-05 13:58:09 [main] INFO  com.example.consumer.ConsumerApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 163 ms. Found 1 JPA repository interface.
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-05 13:58:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-04-05 13:58:11 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-05 13:58:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-05 13:58:11 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-05 13:58:12 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-05 13:58:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-05 13:58:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f781173
+2025-04-05 13:58:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-05 13:58:48 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-05 13:58:49 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)

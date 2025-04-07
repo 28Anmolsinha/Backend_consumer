@@ -1,6 +1,5 @@
 package com.example.consumer.config;
 
-//package com.backend.newproject.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,9 +18,9 @@ public class RabbitMQConfig {
     // Use the same exchange and queue names as the old project
     public static final String EXCHANGE_NAME = "complaint_exchange";
 
-    public static final String INFRASTRUCTURE_QUEUE = "infrastructure_queue";
-    public static final String ELECTRICITY_QUEUE = "electricity_queue";
-    public static final String LEGAL_QUEUE = "legal_queue";
+    public static final String INFRASTRUCTURE_QUEUE = "infrastructure_queue1";
+    public static final String ELECTRICITY_QUEUE = "electricity_queue1";
+    public static final String LEGAL_QUEUE = "legal_queue1";
 
     public static final String INFRASTRUCTURE_ROUTING_KEY = "complaint.infrastructure";
     public static final String ELECTRICITY_ROUTING_KEY = "complaint.electricity";

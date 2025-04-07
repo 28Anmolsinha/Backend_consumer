@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
+
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://10.200.208.98:31382")
 @RequestMapping("/api/complaints")
-public class controller {
-    private static final Logger logger = LogManager.getLogger(controller.class);
+public class ComplaintController {
+    private static final Logger logger = LogManager.getLogger(ComplaintController.class);
 
     private final RedisService redisService;
 
-    public controller(RedisService redisService) {
+    public ComplaintController(RedisService redisService) {
         this.redisService = redisService;
     }
 
     @GetMapping("/top")
     public List<Object> getTopComplaints() {
-        logger.info("Fetching top complains :");
+        logger.info("Fetching top complaints :");
         return redisService.getTopComplaints();
     }
 }
