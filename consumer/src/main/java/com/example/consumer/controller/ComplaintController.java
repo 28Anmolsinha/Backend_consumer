@@ -32,7 +32,7 @@ public class ComplaintController {
 
     @GetMapping("/generate-id")
     public String generateComplaintId() {
-        Integer maxId = complaintRepository.findMaxId(); // Now correctly using the injected instance
+        Integer maxId = complaintRepository.findMaxId();
         int nextId = (maxId != null) ? maxId + 1 : 1;
         logger.info("Generated complaint ID: " + nextId);
         return String.valueOf(nextId);
