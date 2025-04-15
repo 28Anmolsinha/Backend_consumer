@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://10.200.208.98:31382")
+//@CrossOrigin(origins = "http://10.200.208.98:31382")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/complaints")
+
 public class ComplaintController {
 
     private static final Logger logger = LogManager.getLogger(ComplaintController.class);
 
     private final RedisService redisService;
     private final ComplaintRepository complaintRepository;
+
 
     // Constructor injection for both RedisService and ComplaintRepository
     public ComplaintController(RedisService redisService, ComplaintRepository complaintRepository) {
