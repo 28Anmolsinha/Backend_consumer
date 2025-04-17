@@ -1,738 +1,393 @@
-2025-04-15 10:48:36 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 21768 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 10:48:36 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 10:48:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 10:48:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 10:48:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 1 JPA repository interface.
-2025-04-15 10:48:38 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 10:48:38 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 10:48:38 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 10:48:38 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-2025-04-15 10:48:38 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 10:48:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2025-04-15 10:48:38 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2025-04-15 10:48:38 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2025-04-15 10:48:38 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-04-15 10:48:38 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1808 ms
-2025-04-15 10:48:38 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 10:48:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 10:48:38 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 10:48:39 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 10:48:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 10:48:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21688427
-2025-04-15 10:48:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-15 10:48:39 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 10:48:40 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 10:48:40 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 10:48:40 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-15 10:48:41 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-15 10:48:41 [main] DEBUG io.opentelemetry.exporter.internal.grpc.GrpcExporterBuilder - Using GrpcSender: io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSender
-2025-04-15 10:48:41 [main] DEBUG io.opentelemetry.sdk.internal.JavaVersionSpecific - Using the APIs optimized for: Java 9+
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
-2025-04-15 10:48:41 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-15 10:48:41 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-15 10:48:42 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2025-04-15 10:48:42 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2025-04-15 10:48:42 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-15 10:48:42 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3eea7c4b:0/SimpleConnection@4c6a5712 [delegate=amqp://user@10.200.208.98:30280/, localPort=54040]
-2025-04-15 10:48:42 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 6.362 seconds (process running for 7.686)
-2025-04-15 10:48:42 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
-2025-04-15 10:49:13 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-15 10:49:13 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-04-15 10:49:13 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-04-15 10:49:13 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 49
-2025-04-15 10:49:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-f77d9bafc0256a03ecf33f57a0c415df-ad4e720300e861f7-01, user-id=49}
-2025-04-15 10:49:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 49: Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}
-2025-04-15 10:49:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 49: Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}
-2025-04-15 10:49:16 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
-2025-04-15 10:49:18 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
-2025-04-15 10:49:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
-2025-04-15 10:49:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}
-2025-04-15 10:49:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='46', name='Anmol', issueType='infrastructure', description='Infra.'}
-2025-04-15 10:49:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}, Complaint{id='48', name='Anmol Sinha', issueType='infrastructure', description='issue.'}, Complaint{id='47', name='Rishab', issueType='legal', description='Admin'}]
-2025-04-15 10:49:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 10:49:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 10:51:43 [http-nio-8081-exec-4] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 50
-2025-04-15 10:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-e1154167310fda9db9ce962c73fa37c4-338251cc8008e5cb-01, user-id=50}
-2025-04-15 10:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 50: Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}
-2025-04-15 10:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 50: Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}
-2025-04-15 10:51:45 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 10:51:47 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='47', name='Rishab', issueType='legal', description='Admin'}
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}, Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}, Complaint{id='48', name='Anmol Sinha', issueType='infrastructure', description='issue.'}]
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 10:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 10:54:43 [http-nio-8081-exec-6] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 51
-2025-04-15 10:54:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-496fa54d6d99696c973c0b1d3135915f-769b92bdacb8df24-01, user-id=51}
-2025-04-15 10:54:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 51: Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}
-2025-04-15 10:54:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 51: Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}
-2025-04-15 10:54:45 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 10:54:47 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='48', name='Anmol Sinha', issueType='infrastructure', description='issue.'}
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}, Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}, Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}]
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 10:54:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 11:05:48 [http-nio-8081-exec-8] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 52
-2025-04-15 11:05:48 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-ff44dd4c57842840ecf4547b2ed5aec1-d1f4759d65524df2-01, user-id=52}
-2025-04-15 11:05:48 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 52: Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}
-2025-04-15 11:05:48 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 52: Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}
-2025-04-15 11:05:50 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
-2025-04-15 11:05:52 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='49', name='Anmol Sinha', issueType='infrastructure', description='Infra.'}
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}, Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}, Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}]
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 11:05:54 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 11:06:40 [http-nio-8081-exec-10] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 53
-2025-04-15 11:06:40 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-e590ee832524150ee9e4d88d8bb391b5-96ce8a78a4a4c2b6-01, user-id=53}
-2025-04-15 11:06:40 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 53: Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}
-2025-04-15 11:06:40 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 53: Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}
-2025-04-15 11:06:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
-2025-04-15 11:06:44 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='50', name='Anmol Sinha', issueType='legal', description='l'}
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}, Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}, Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}]
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 11:06:46 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 11:20:36 [http-nio-8081-exec-3] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 54
-2025-04-15 11:20:36 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-1721d8ab9248382f88039815dadb18ca-24cb977ff46d7ce0-01, user-id=54}
-2025-04-15 11:20:36 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 54: Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}
-2025-04-15 11:20:36 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 54: Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}
-2025-04-15 11:20:38 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
-2025-04-15 11:20:40 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='51', name='Rohit', issueType='legal', description='Legal'}
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}, Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}, Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}]
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 11:20:42 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 11:51:42 [http-nio-8081-exec-6] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 55
-2025-04-15 11:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-c94bb4d399022372387d50731aac6f0d-9f30383f3624661f-01, user-id=55}
-2025-04-15 11:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 55: Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}
-2025-04-15 11:51:43 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 55: Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}
-2025-04-15 11:51:45 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 11:51:47 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='52', name='Anmol Sinha', issueType='infrastructure', description='issue.'}
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}, Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}, Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}]
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 11:51:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 12:25:27 [http-nio-8081-exec-9] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 56
-2025-04-15 12:25:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-ec9e4345069126873736f928a4437fb5-8a1d60c9697b1960-01, user-id=56}
-2025-04-15 12:25:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 56: Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}
-2025-04-15 12:25:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 56: Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}
-2025-04-15 12:25:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 12:25:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='53', name='Rohit', issueType='infrastructure', description='i'}
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}, Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}, Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}]
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 12:38:47 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 8532 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 12:38:47 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 12:38:48 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:38:48 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 12:38:49 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 257 ms. Found 1 JPA repository interface.
-2025-04-15 12:38:49 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:38:49 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 12:38:49 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 12:38:49 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
-2025-04-15 12:38:50 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 12:38:50 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2933 ms
-2025-04-15 12:38:51 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 12:38:51 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 12:38:51 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 12:38:52 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 12:38:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 12:38:53 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f8df69
-2025-04-15 12:38:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-15 12:38:53 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 12:38:54 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 12:38:54 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 12:38:54 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-15 12:38:55 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-15 12:38:55 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-15 12:38:56 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-15 12:38:58 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
-2025-04-15 12:38:58 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
-2025-04-15 12:38:58 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
-2025-04-15 12:38:58 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
-2025-04-15 12:38:58 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-15 12:38:58 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-15 12:38:59 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2025-04-15 12:38:59 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-15 12:38:59 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#2bd24c09:0/SimpleConnection@524a96f5 [delegate=amqp://user@10.200.208.98:30280/, localPort=51129]
-2025-04-15 12:38:59 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 12.937 seconds (process running for 16.064)
-2025-04-15 12:38:59 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
-2025-04-15 12:38:59 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:38:59 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:38:59 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:39:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:39:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:39:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:39:01 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 12:39:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-04-15 12:39:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-04-15 12:39:21 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 11288 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 12:39:21 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 12:39:21 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:39:21 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 12:39:22 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 145 ms. Found 1 JPA repository interface.
-2025-04-15 12:39:22 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:39:22 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 12:39:22 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 12:39:22 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-2025-04-15 12:39:22 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 12:39:22 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2025-04-15 12:39:22 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2025-04-15 12:39:22 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2025-04-15 12:39:22 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-04-15 12:39:22 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1652 ms
-2025-04-15 12:39:22 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 12:39:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 12:39:23 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 12:39:23 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 12:39:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 12:39:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59014efe
-2025-04-15 12:39:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-15 12:39:24 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 12:39:25 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 12:39:25 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 12:39:25 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-15 12:39:25 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-15 12:39:25 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-15 12:39:26 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-15 12:39:27 [main] DEBUG io.opentelemetry.exporter.internal.grpc.GrpcExporterBuilder - Using GrpcSender: io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSender
-2025-04-15 12:39:27 [main] DEBUG io.opentelemetry.sdk.internal.JavaVersionSpecific - Using the APIs optimized for: Java 9+
-2025-04-15 12:39:27 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
-2025-04-15 12:39:27 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
-2025-04-15 12:39:27 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
-2025-04-15 12:39:27 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
-2025-04-15 12:39:27 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-15 12:39:27 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-15 12:39:28 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2025-04-15 12:39:28 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2025-04-15 12:39:28 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-15 12:39:28 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#b0c4670:0/SimpleConnection@20bd4fd2 [delegate=amqp://user@10.200.208.98:30280/, localPort=51183]
-2025-04-15 12:39:28 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 8.23 seconds (process running for 9.454)
-2025-04-15 12:39:28 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:55:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
-2025-04-15 12:55:08 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 12:55:08 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-04-15 12:55:09 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-04-15 12:55:12 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 10328 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 12:55:12 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 148 ms. Found 1 JPA repository interface.
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 12:55:14 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-2025-04-15 12:55:15 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 12:55:15 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2025-04-15 12:55:15 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2025-04-15 12:55:15 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2025-04-15 12:55:15 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-04-15 12:55:15 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2265 ms
-2025-04-15 12:55:15 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 12:55:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 12:55:15 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 12:55:15 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 12:55:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 12:55:16 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c0680b0
-2025-04-15 12:55:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-15 12:55:16 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 12:55:17 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 12:55:17 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 12:55:17 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-15 12:55:17 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-15 12:55:17 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-15 12:55:18 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-15 12:55:19 [main] DEBUG io.opentelemetry.exporter.internal.grpc.GrpcExporterBuilder - Using GrpcSender: io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSender
-2025-04-15 12:55:19 [main] DEBUG io.opentelemetry.sdk.internal.JavaVersionSpecific - Using the APIs optimized for: Java 9+
-2025-04-15 12:55:19 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
-2025-04-15 12:55:19 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
-2025-04-15 12:55:19 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
-2025-04-15 12:55:19 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
-2025-04-15 12:55:19 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-15 12:55:19 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-15 12:55:20 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2025-04-15 12:55:20 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2025-04-15 12:55:20 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-15 12:55:20 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#9e7d82e:0/SimpleConnection@5168f69d [delegate=amqp://user@10.200.208.98:30280/, localPort=52281]
-2025-04-15 12:55:21 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 8.695 seconds (process running for 10.291)
-2025-04-15 12:55:21 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
-2025-04-15 12:57:11 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-04-15 12:57:11 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-04-15 12:57:12 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
-2025-04-15 12:57:12 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 57
-2025-04-15 12:57:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-85e98a2b8c688f6ca64f6b65d27769a0-0d6b50c2d4a37da3-01, user-id=57}
-2025-04-15 12:57:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 57: Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}
-2025-04-15 12:57:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 57: Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}
-2025-04-15 12:57:16 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 12:57:18 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 12:57:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 12:57:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}
-2025-04-15 12:57:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='54', name='The Anmol', issueType='infrastructure', description='infra.'}
-2025-04-15 12:57:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}, Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}, Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}]
-2025-04-15 12:57:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 12:57:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 13:01:00 [http-nio-8081-exec-8] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 58
-2025-04-15 13:01:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-d11286adbdbd53a70debbd773f5c209b-046452a868d51b07-01, user-id=58}
-2025-04-15 13:01:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 58: Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}
-2025-04-15 13:01:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 58: Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}
-2025-04-15 13:01:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 13:01:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 13:01:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 13:01:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}
-2025-04-15 13:01:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='55', name='Rishab', issueType='legal', description='Admin'}
-2025-04-15 13:01:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}, Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}, Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}]
-2025-04-15 13:01:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 13:01:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 13:09:45 [http-nio-8081-exec-4] INFO  com.example.consumer.controller.ComplaintController - Fetching top complaints:
-2025-04-15 13:09:45 [http-nio-8081-exec-4] INFO  com.example.consumer.service.RedisService - Fetching top complaints from Redis.
-2025-04-15 13:09:45 [http-nio-8081-exec-4] INFO  com.example.consumer.service.RedisService - Top complaints retrieved: [Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}, Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}, Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}]
-2025-04-15 13:13:17 [http-nio-8081-exec-10] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 59
-2025-04-15 13:13:17 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-c8f94efe92fdb1c23db9a67682403401-4438ee0168a31c6d-01, user-id=59}
-2025-04-15 13:13:17 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 59: Complaint{id='59', name='Viraj', issueType='legal', description='Legal issue.'}
-2025-04-15 13:13:17 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 59: Complaint{id='59', name='Viraj', issueType='legal', description='Legal issue.'}
-2025-04-15 13:13:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
-2025-04-15 13:13:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='59', name='Viraj', issueType='legal', description='Legal issue.'}
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='56', name='Rishab', issueType='legal', description='Legal.'}
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='59', name='Viraj', issueType='legal', description='Legal issue.'}, Complaint{id='58', name='Anmol Sinha', issueType='legal', description='Admin.'}, Complaint{id='57', name='Hemant', issueType='legal', description='Legal issue'}]
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
-2025-04-15 13:13:23 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] DEBUG io.opentelemetry.sdk.trace.SdkSpan - Calling end() on an ended Span.
-2025-04-15 14:58:55 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 13400 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 14:58:55 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 14:58:55 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 14:58:55 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 14:58:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 184 ms. Found 1 JPA repository interface.
-2025-04-15 14:58:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 14:58:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 14:58:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 14:58:56 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-2025-04-15 14:58:56 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 14:58:56 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2025-04-15 14:58:56 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2025-04-15 14:58:56 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2025-04-15 14:58:56 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-04-15 14:58:56 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1549 ms
-2025-04-15 14:58:56 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 14:58:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 14:58:56 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 14:58:57 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 14:58:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 14:59:19 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
-2025-04-15 14:59:19 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-04-15 14:59:19 [main] WARN  org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:292) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:124) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:78) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) [spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) [spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) [spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) [spring-context-6.1.14.jar:6.1.14]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) [spring-context-6.1.14.jar:6.1.14]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) [spring-boot-3.3.5.jar:3.3.5]
-	at com.example.consumer.ConsumerApplication.main(ConsumerApplication.java:14) [classes/:?]
-Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	... 35 more
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501) ~[?:?]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485) ~[?:?]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	... 35 more
-Caused by: java.net.ConnectException: Connection timed out: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[?:?]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[?:?]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[?:?]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[?:?]
-	at java.base/java.net.Socket.connect(Socket.java:760) ~[?:?]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	... 35 more
-2025-04-15 14:59:19 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 14:59:20 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 14:59:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 14:59:42 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
-2025-04-15 14:59:42 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-04-15 14:59:42 [main] ERROR org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-2025-04-15 14:59:42 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-2025-04-15 14:59:42 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
-2025-04-15 14:59:42 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-04-15 14:59:42 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) [spring-boot-3.3.5.jar:3.3.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) [spring-boot-3.3.5.jar:3.3.5]
-	at com.example.consumer.ConsumerApplication.main(ConsumerApplication.java:14) [classes/:?]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 more
-Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.] [n/a]
-	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[?:?]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 more
-Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[?:?]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 more
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501) ~[?:?]
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485) ~[?:?]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[?:?]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 more
-Caused by: java.net.ConnectException: Connection timed out: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[?:?]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[?:?]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[?:?]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[?:?]
-	at java.base/java.net.Socket.connect(Socket.java:760) ~[?:?]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[?:?]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
-	... 15 more
-2025-04-15 15:00:09 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 13204 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
-2025-04-15 15:00:09 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
-2025-04-15 15:00:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 15:00:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-15 15:00:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 1 JPA repository interface.
-2025-04-15 15:00:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-04-15 15:00:10 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-04-15 15:00:11 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-04-15 15:00:11 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2025-04-15 15:00:11 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2025-04-15 15:00:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2025-04-15 15:00:11 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2025-04-15 15:00:11 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
-2025-04-15 15:00:11 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-04-15 15:00:11 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2183 ms
-2025-04-15 15:00:12 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-15 15:00:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2025-04-15 15:00:12 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-04-15 15:00:12 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-15 15:00:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-04-15 15:00:12 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59014efe
-2025-04-15 15:00:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-04-15 15:00:12 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15 15:00:13 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-15 15:00:13 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-15 15:00:13 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
-2025-04-15 15:00:13 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
-2025-04-15 15:00:14 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-04-15 15:00:14 [main] DEBUG io.opentelemetry.exporter.internal.grpc.GrpcExporterBuilder - Using GrpcSender: io.opentelemetry.exporter.sender.okhttp.internal.OkHttpGrpcSender
-2025-04-15 15:00:14 [main] DEBUG io.opentelemetry.sdk.internal.JavaVersionSpecific - Using the APIs optimized for: Java 9+
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
-2025-04-15 15:00:14 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
-2025-04-15 15:00:14 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-15 15:00:15 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2025-04-15 15:00:15 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
-2025-04-15 15:00:15 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
-2025-04-15 15:00:15 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#b0c4670:0/SimpleConnection@20bd4fd2 [delegate=amqp://user@10.200.208.98:30280/, localPort=51954]
-2025-04-15 15:00:16 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 6.859 seconds (process running for 8.095)
-2025-04-15 15:00:16 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
+2025-04-17 11:07:03 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 5280 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
+2025-04-17 11:07:03 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 1 JPA repository interface.
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-17 11:07:04 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-17 11:07:04 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-04-17 11:07:04 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:07:04 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-17 11:07:04 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-04-17 11:07:04 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-17 11:07:04 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1544 ms
+2025-04-17 11:07:05 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17 11:07:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-17 11:07:05 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-17 11:07:05 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17 11:07:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-17 11:07:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7381d6f0
+2025-04-17 11:07:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-17 11:07:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17 11:07:06 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17 11:07:06 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 11:07:06 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-04-17 11:07:06 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
+2025-04-17 11:07:07 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
+2025-04-17 11:07:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-04-17 11:07:07 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-17 11:07:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:07:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-04-17 11:07:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-04-17 11:07:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#12c66345:0/SimpleConnection@20bd4fd2 [delegate=amqp://user@10.200.208.98:30280/, localPort=53548]
+2025-04-17 11:07:08 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 5.655 seconds (process running for 6.711)
+2025-04-17 11:07:08 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
+2025-04-17 11:07:59 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-17 11:07:59 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-17 11:07:59 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 27 ms
+2025-04-17 11:08:00 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 80
+2025-04-17 11:08:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-9fe666c67017c73d32291c10f88d8002-3f352075e114d7ae-01, user-id=80}
+2025-04-17 11:08:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 80: Complaint{id='80', name='Rohit', issueType='electricity', description='e'}
+2025-04-17 11:08:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Processing electricity complaint from user 80: Complaint{id='80', name='Rohit', issueType='electricity', description='e'}
+2025-04-17 11:08:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity team analyzing issue...
+2025-04-17 11:08:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity team fixing the issue...
+2025-04-17 11:08:08 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity issue resolved!
+2025-04-17 11:08:08 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='80', name='Rohit', issueType='electricity', description='e'}
+2025-04-17 11:08:09 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='77', name='Anmol', issueType='legal', description='lll'}
+2025-04-17 11:08:09 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='80', name='Rohit', issueType='electricity', description='e'}, Complaint{id='79', name='Hehe', issueType='electricity', description='a'}, Complaint{id='78', name='Hehe', issueType='infrastructure', description='d'}]
+2025-04-17 11:08:09 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 11:20:52 [http-nio-8081-exec-4] INFO  com.example.consumer.controller.ComplaintController - Fetching top complaints:
+2025-04-17 11:20:52 [http-nio-8081-exec-4] INFO  com.example.consumer.service.RedisService - Fetching top complaints from Redis.
+2025-04-17 11:20:52 [http-nio-8081-exec-4] INFO  com.example.consumer.service.RedisService - Top complaints retrieved: [Complaint{id='80', name='Rohit', issueType='electricity', description='e'}, Complaint{id='79', name='Hehe', issueType='electricity', description='a'}, Complaint{id='78', name='Hehe', issueType='infrastructure', description='d'}]
+2025-04-17 11:26:22 [http-nio-8081-exec-7] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 81
+2025-04-17 11:26:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-1d63c69a7513035ca81d427ca9230886-7db21ac0c4a07793-01, user-id=81}
+2025-04-17 11:26:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 81: Complaint{id='81', name='a', issueType='infrastructure', description='a'}
+2025-04-17 11:26:22 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 81: Complaint{id='81', name='a', issueType='infrastructure', description='a'}
+2025-04-17 11:26:25 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 11:26:27 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 11:26:29 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 11:26:29 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='81', name='a', issueType='infrastructure', description='a'}
+2025-04-17 11:26:29 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='78', name='Hehe', issueType='infrastructure', description='d'}
+2025-04-17 11:26:29 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='81', name='a', issueType='infrastructure', description='a'}, Complaint{id='80', name='Rohit', issueType='electricity', description='e'}, Complaint{id='79', name='Hehe', issueType='electricity', description='a'}]
+2025-04-17 11:26:29 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 11:30:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:30:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:30:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:30:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:30:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:30:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:30:21 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 11:30:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-17 11:30:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-17 11:30:26 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 22636 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
+2025-04-17 11:30:26 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135 ms. Found 1 JPA repository interface.
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-17 11:30:27 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-17 11:30:27 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-04-17 11:30:27 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:30:27 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-17 11:30:27 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-04-17 11:30:27 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-17 11:30:27 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1732 ms
+2025-04-17 11:30:28 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17 11:30:28 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-17 11:30:28 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-17 11:30:28 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17 11:30:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-17 11:30:30 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c0680b0
+2025-04-17 11:30:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-17 11:30:30 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17 11:30:31 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17 11:30:31 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 11:30:31 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-04-17 11:30:31 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
+2025-04-17 11:30:31 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
+2025-04-17 11:30:31 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17 11:30:32 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
+2025-04-17 11:30:32 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
+2025-04-17 11:30:32 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
+2025-04-17 11:30:32 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
+2025-04-17 11:30:32 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-04-17 11:30:32 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-17 11:30:33 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:30:33 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-04-17 11:30:33 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-04-17 11:30:33 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e1596c3:0/SimpleConnection@4f7bb581 [delegate=amqp://user@10.200.208.98:30280/, localPort=54691]
+2025-04-17 11:30:33 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 8.203 seconds (process running for 9.314)
+2025-04-17 11:30:33 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
+2025-04-17 11:30:48 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-17 11:30:48 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-17 11:30:48 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-04-17 11:30:48 [http-nio-8081-exec-1] INFO  com.example.consumer.controller.ComplaintController - Fetching top complaints:
+2025-04-17 11:30:48 [http-nio-8081-exec-1] INFO  com.example.consumer.service.RedisService - Fetching top complaints from Redis.
+2025-04-17 11:30:49 [http-nio-8081-exec-1] INFO  com.example.consumer.service.RedisService - Top complaints retrieved: [Complaint{id='81', name='a', issueType='infrastructure', description='a'}, Complaint{id='80', name='Rohit', issueType='electricity', description='e'}, Complaint{id='79', name='Hehe', issueType='electricity', description='a'}]
+2025-04-17 11:30:56 [http-nio-8081-exec-3] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 82
+2025-04-17 11:30:56 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-356f7f112d29e98a6287b1ee4bc660f1-072b97f32952e35f-01, user-id=82}
+2025-04-17 11:30:56 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 82: Complaint{id='82', name='a', issueType='electricity', description='a'}
+2025-04-17 11:30:56 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Processing electricity complaint from user 82: Complaint{id='82', name='a', issueType='electricity', description='a'}
+2025-04-17 11:30:58 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity team analyzing issue...
+2025-04-17 11:31:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity team fixing the issue...
+2025-04-17 11:31:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Electricity issue resolved!
+2025-04-17 11:31:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='82', name='a', issueType='electricity', description='a'}
+2025-04-17 11:31:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='79', name='Hehe', issueType='electricity', description='a'}
+2025-04-17 11:31:03 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='82', name='a', issueType='electricity', description='a'}, Complaint{id='81', name='a', issueType='infrastructure', description='a'}, Complaint{id='80', name='Rohit', issueType='electricity', description='e'}]
+2025-04-17 11:31:03 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.ElectricityService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 11:31:09 [OkHttp http://10.200.208.98:4317/...] WARN  io.opentelemetry.exporter.internal.grpc.GrpcExporter - Failed to export spans. Server responded with gRPC status code 2. Error message: Failed to connect to /10.200.208.98:4317
+2025-04-17 11:33:57 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 83
+2025-04-17 11:33:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-5cff42c6b209584025ba192ada7b4a57-b4b8c40c49853c73-01, user-id=83}
+2025-04-17 11:33:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 83: Complaint{id='83', name='A', issueType='infrastructure', description='a'}
+2025-04-17 11:33:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 83: Complaint{id='83', name='A', issueType='infrastructure', description='a'}
+2025-04-17 11:33:59 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 11:34:01 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 11:34:03 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 11:34:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='83', name='A', issueType='infrastructure', description='a'}
+2025-04-17 11:34:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='80', name='Rohit', issueType='electricity', description='e'}
+2025-04-17 11:34:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='83', name='A', issueType='infrastructure', description='a'}, Complaint{id='82', name='a', issueType='electricity', description='a'}, Complaint{id='81', name='a', issueType='infrastructure', description='a'}]
+2025-04-17 11:34:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 11:34:07 [OkHttp http://10.200.208.98:4317/...] WARN  io.opentelemetry.exporter.internal.grpc.GrpcExporter - Failed to export spans. Server responded with gRPC status code 2. Error message: Failed to connect to /10.200.208.98:4317
+2025-04-17 11:55:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:55:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:55:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 11:55:31 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:55:31 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:55:31 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 11:55:32 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 11:55:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-17 11:55:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-17 11:55:36 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 8400 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
+2025-04-17 11:55:36 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 136 ms. Found 1 JPA repository interface.
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-17 11:55:37 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-17 11:55:37 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-04-17 11:55:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:55:37 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-17 11:55:37 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-04-17 11:55:38 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-17 11:55:38 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1636 ms
+2025-04-17 11:55:38 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17 11:55:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-17 11:55:38 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-17 11:55:38 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17 11:55:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-17 11:55:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c0680b0
+2025-04-17 11:55:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-17 11:55:39 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17 11:55:39 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17 11:55:39 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 11:55:39 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
+2025-04-17 11:55:40 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
+2025-04-17 11:55:40 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-04-17 11:55:40 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-17 11:55:41 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-04-17 11:55:41 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-04-17 11:55:41 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-04-17 11:55:41 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3e1596c3:0/SimpleConnection@4f7bb581 [delegate=amqp://user@10.200.208.98:30280/, localPort=55671]
+2025-04-17 11:55:41 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 5.811 seconds (process running for 6.815)
+2025-04-17 11:55:41 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
+2025-04-17 11:57:10 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-17 11:57:10 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-17 11:57:10 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 45 ms
+2025-04-17 11:57:11 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 84
+2025-04-17 11:57:12 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-8abf77ef900fc344228165d64b4bfd23-23d93289016f22b7-01, user-id=84}
+2025-04-17 11:57:12 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 84: Complaint{id='84', name='The Anmol', issueType='legal', description='n'}
+2025-04-17 11:57:12 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing legal complaint from user 84: Complaint{id='84', name='The Anmol', issueType='legal', description='n'}
+2025-04-17 11:57:14 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team analyzing issue...
+2025-04-17 11:57:16 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal team fixing the issue...
+2025-04-17 11:57:18 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Legal issue resolved!
+2025-04-17 11:57:18 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='84', name='The Anmol', issueType='legal', description='n'}
+2025-04-17 11:57:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='81', name='a', issueType='infrastructure', description='a'}
+2025-04-17 11:57:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='84', name='The Anmol', issueType='legal', description='n'}, Complaint{id='83', name='A', issueType='infrastructure', description='a'}, Complaint{id='82', name='a', issueType='electricity', description='a'}]
+2025-04-17 11:57:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 11:58:33 [http-nio-8081-exec-5] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 85
+2025-04-17 11:58:33 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-1e6bb0dae98febf84a75d15499df18d1-0602c56d5c656ec8-01, user-id=85}
+2025-04-17 11:58:33 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 85: Complaint{id='85', name='Hemant', issueType='electricity', description='r'}
+2025-04-17 11:58:33 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Processing electricity complaint from user 85: Complaint{id='85', name='Hemant', issueType='electricity', description='r'}
+2025-04-17 11:58:35 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team analyzing issue...
+2025-04-17 11:58:37 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team fixing the issue...
+2025-04-17 11:58:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity issue resolved!
+2025-04-17 11:58:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='85', name='Hemant', issueType='electricity', description='r'}
+2025-04-17 11:58:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='82', name='a', issueType='electricity', description='a'}
+2025-04-17 11:58:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='85', name='Hemant', issueType='electricity', description='r'}, Complaint{id='84', name='The Anmol', issueType='legal', description='n'}, Complaint{id='83', name='A', issueType='infrastructure', description='a'}]
+2025-04-17 11:58:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 12:22:55 [http-nio-8081-exec-7] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 86
+2025-04-17 12:22:58 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-9196ed0e224caa42257175dc36aa1cf4-86621547b78dc866-01, user-id=86}
+2025-04-17 12:22:58 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 86: Complaint{id='86', name='a', issueType='electricity', description='a'}
+2025-04-17 12:22:58 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Processing electricity complaint from user 86: Complaint{id='86', name='a', issueType='electricity', description='a'}
+2025-04-17 12:23:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team analyzing issue...
+2025-04-17 12:23:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team fixing the issue...
+2025-04-17 12:23:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity issue resolved!
+2025-04-17 12:23:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='86', name='a', issueType='electricity', description='a'}
+2025-04-17 12:23:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='83', name='A', issueType='infrastructure', description='a'}
+2025-04-17 12:23:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='86', name='a', issueType='electricity', description='a'}, Complaint{id='85', name='Hemant', issueType='electricity', description='r'}, Complaint{id='84', name='The Anmol', issueType='legal', description='n'}]
+2025-04-17 12:23:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 12:25:33 [http-nio-8081-exec-9] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 87
+2025-04-17 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-1bba01820bb14c7d98cc2cd4aa79dde1-d4c61132f3a354f2-01, user-id=87}
+2025-04-17 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 87: Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}
+2025-04-17 12:25:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 87: Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}
+2025-04-17 12:25:37 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 12:25:39 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 12:25:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 12:25:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}
+2025-04-17 12:25:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='84', name='The Anmol', issueType='legal', description='n'}
+2025-04-17 12:25:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}, Complaint{id='86', name='a', issueType='electricity', description='a'}, Complaint{id='85', name='Hemant', issueType='electricity', description='r'}]
+2025-04-17 12:25:41 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 12:26:28 [http-nio-8081-exec-1] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 88
+2025-04-17 12:26:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-47d60fbccb47e8763b4a084ea5e04d35-b881436c1e33fa5a-01, user-id=88}
+2025-04-17 12:26:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 88: Complaint{id='88', name='a', issueType='electricity', description='a'}
+2025-04-17 12:26:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Processing electricity complaint from user 88: Complaint{id='88', name='a', issueType='electricity', description='a'}
+2025-04-17 12:26:30 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team analyzing issue...
+2025-04-17 12:26:32 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity team fixing the issue...
+2025-04-17 12:26:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Electricity issue resolved!
+2025-04-17 12:26:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='88', name='a', issueType='electricity', description='a'}
+2025-04-17 12:26:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='85', name='Hemant', issueType='electricity', description='r'}
+2025-04-17 12:26:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='88', name='a', issueType='electricity', description='a'}, Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}, Complaint{id='86', name='a', issueType='electricity', description='a'}]
+2025-04-17 12:26:34 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  com.example.consumer.service.ElectricityService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 12:28:47 [http-nio-8081-exec-4] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 89
+2025-04-17 12:28:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-29a95155cf1e0ae9f39603955a305f12-5903c6e8f0809c1e-01, user-id=89}
+2025-04-17 12:28:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 89: Complaint{id='89', name='a', issueType='infrastructure', description='a'}
+2025-04-17 12:28:49 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 89: Complaint{id='89', name='a', issueType='infrastructure', description='a'}
+2025-04-17 12:28:51 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 12:28:53 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 12:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 12:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='89', name='a', issueType='infrastructure', description='a'}
+2025-04-17 12:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='86', name='a', issueType='electricity', description='a'}
+2025-04-17 12:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='89', name='a', issueType='infrastructure', description='a'}, Complaint{id='88', name='a', issueType='electricity', description='a'}, Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}]
+2025-04-17 12:28:55 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 12:31:14 [http-nio-8081-exec-6] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 90
+2025-04-17 12:31:15 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-69910906f266712470bb97b16e628a45-986bb5cdd487fb0a-01, user-id=90}
+2025-04-17 12:31:15 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 90: Complaint{id='90', name='c', issueType='infrastructure', description='c'}
+2025-04-17 12:31:15 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 90: Complaint{id='90', name='c', issueType='infrastructure', description='c'}
+2025-04-17 12:31:17 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 12:31:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 12:31:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 12:31:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='90', name='c', issueType='infrastructure', description='c'}
+2025-04-17 12:31:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='87', name='Rohit', issueType='infrastructure', description='a'}
+2025-04-17 12:31:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='90', name='c', issueType='infrastructure', description='c'}, Complaint{id='89', name='a', issueType='infrastructure', description='a'}, Complaint{id='88', name='a', issueType='electricity', description='a'}]
+2025-04-17 12:31:21 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 13:02:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:02:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:02:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:02:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:02:19 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:02:20 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:02:20 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 13:02:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-17 13:02:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-17 13:02:25 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 25092 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
+2025-04-17 13:02:25 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 1 JPA repository interface.
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-17 13:02:26 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-04-17 13:02:27 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-04-17 13:02:27 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-04-17 13:02:27 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-17 13:02:27 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-04-17 13:02:27 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-17 13:02:27 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1723 ms
+2025-04-17 13:02:27 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17 13:02:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-17 13:02:27 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-17 13:02:27 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17 13:02:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-17 13:02:29 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ce6a9bd
+2025-04-17 13:02:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-17 13:02:29 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17 13:02:30 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17 13:02:30 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 13:02:30 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-04-17 13:02:30 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
+2025-04-17 13:02:30 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
+2025-04-17 13:02:30 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17 13:02:31 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
+2025-04-17 13:02:31 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
+2025-04-17 13:02:31 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
+2025-04-17 13:02:31 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
+2025-04-17 13:02:31 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-04-17 13:02:31 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-17 13:02:32 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-04-17 13:02:32 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-04-17 13:02:32 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-04-17 13:02:32 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#34817fcc:0/SimpleConnection@8cc1bac [delegate=amqp://user@10.200.208.98:30280/, localPort=60799]
+2025-04-17 13:02:32 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 7.415 seconds (process running for 8.568)
+2025-04-17 13:02:32 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
+2025-04-17 13:03:00 [http-nio-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-17 13:03:00 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-17 13:03:00 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-04-17 13:03:00 [http-nio-8081-exec-2] INFO  com.example.consumer.controller.ComplaintController - Generated complaint ID: 91
+2025-04-17 13:03:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Received headers: {traceparent=00-96e71c8f30eabf7601f0085239921f9e-5e36017921340a00-01, user-id=91}
+2025-04-17 13:03:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RabbitMQConsumer - Processing complaint from user 91: Complaint{id='91', name='a', issueType='infrastructure', description='a'}
+2025-04-17 13:03:00 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Processing infrastructure complaint from user 91: Complaint{id='91', name='a', issueType='infrastructure', description='a'}
+2025-04-17 13:03:02 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure team analyzing issue...
+2025-04-17 13:03:04 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure team fixing the issue...
+2025-04-17 13:03:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Infrastructure issue resolved!
+2025-04-17 13:03:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Saving complaint to Redis: Complaint{id='91', name='a', issueType='infrastructure', description='a'}
+2025-04-17 13:03:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Removed old complaint from Redis: Complaint{id='88', name='a', issueType='electricity', description='a'}
+2025-04-17 13:03:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.RedisService - Updated Redis List: [Complaint{id='91', name='a', issueType='infrastructure', description='a'}, Complaint{id='90', name='c', issueType='infrastructure', description='c'}, Complaint{id='89', name='a', issueType='infrastructure', description='a'}]
+2025-04-17 13:03:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  com.example.consumer.service.LegalService - Complaint saved to MySQL and Redis successfully.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:08:57 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-04-17 13:08:58 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 13:08:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-17 13:08:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-17 13:09:02 [main] INFO  com.example.consumer.ConsumerApplication - Starting ConsumerApplication using Java 23.0.2 with PID 19704 (C:\Users\Anmol Sinha\Downloads\consumer\consumer\target\classes started by Anmol Sinha in C:\Users\Anmol Sinha\Downloads\consumer)
+2025-04-17 13:09:02 [main] INFO  com.example.consumer.ConsumerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 140 ms. Found 1 JPA repository interface.
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.consumer.repository.ComplaintRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-17 13:09:03 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-17 13:09:04 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-04-17 13:09:04 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-04-17 13:09:04 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-17 13:09:04 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-04-17 13:09:04 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-17 13:09:04 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1719 ms
+2025-04-17 13:09:04 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-17 13:09:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-04-17 13:09:04 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-17 13:09:05 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-17 13:09:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-17 13:09:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@703cb756
+2025-04-17 13:09:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-17 13:09:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-17 13:09:06 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-17 13:09:06 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-17 13:09:06 [main] INFO  com.example.consumer.config.RedisConfig - Initializing Redis Connection Factory with Host: 10.200.208.98 and Port: 32549
+2025-04-17 13:09:06 [main] INFO  com.example.consumer.config.RedisConfig - Configuring Redis Template...
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RedisConfig - Redis Template successfully initialized.
+2025-04-17 13:09:07 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Direct Exchange: complaint_exchange1
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: infrastructure_queue2
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: electricity_queue2
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Using existing Queue: legal_queue2
+2025-04-17 13:09:07 [main] INFO  com.example.consumer.config.RabbitMQConfig - Configuring Jackson2JsonMessageConverter for RabbitMQ
+2025-04-17 13:09:07 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-17 13:09:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-04-17 13:09:08 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-04-17 13:09:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [10.200.208.98:30280]
+2025-04-17 13:09:08 [main] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#73f506d7:0/SimpleConnection@2242dd2b [delegate=amqp://user@10.200.208.98:30280/, localPort=61198]
+2025-04-17 13:09:08 [main] INFO  com.example.consumer.ConsumerApplication - Started ConsumerApplication in 6.13 seconds (process running for 7.217)
+2025-04-17 13:09:08 [main] INFO  com.example.consumer.ConsumerApplication - Ready to receive complaints from queue : 
